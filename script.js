@@ -8,7 +8,7 @@ awesomplete.list = ['Afghanistan', 'Åland Islands', 'Albania', 'Algeria', 'Amer
 awesomplete.filter = function(text, input) {
 		return Awesomplete.FILTER_CONTAINS(text, input.match(/[^ ]*$/)[0]);
 	};
-awesomplete.replace: function(text) {
+awesomplete.replace = function(text) {
 		var before = this.input.value.match(/^.+ \s*|/)[0];
 		this.input.value = before + text + " ";
 	};
