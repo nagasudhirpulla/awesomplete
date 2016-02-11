@@ -20,24 +20,37 @@ var lists = ["own", "etype", "vol","substn", "element"];
 
 awesomplete.list = getStringArrayFromOptions(lists[0]);
 awesomplete.filter = function(text, input) {
-	return Awesomplete.FILTER_CONTAINS(text, input.match(/[^~~]*$/)[0]);
+	return Awesomplete.FILTER_CONTAINS(text, input.match(/[^~~]*$/)[0]);//hardcoded
 };
 awesomplete.replace = function(text) {
-	var before = this.input.value.match(/^.+~~\s*|/)[0];
-	this.input.value = before + text + "~~";
+	var before = this.input.value.match(/^.+~~\s*|/)[0];//hardcoded
+	this.input.value = before + text + "~~";//hardcoded
 };
 
-/* function awesomeChangeListener(e) {
-	var owner = e.target;
-	//Now decide the choice list based on the number of tags
-	var mainStr = owner.value;
-	var index = mainStr.split("~~").length - 1;
-	awesomplete.list = getStringArrayFromOptions(lists[index]);
-	doAutoSelection(lists, mainStr.trimRight().split("~~"));
-}; */
+awesomplete.sudhirCustom = function(list, value){
+	value = value.toLowerCase();
+	var start = lastIndexOf(value, "~~")//hardcoded
+	value = value.substring(start);
+	for(var i=list.length-1;i>=0;i--){
+		var temp = list[i];
+		if(temp.toLowerCase().indexOf(value) === 0){
+			list.splice(i,1);
+			list.splice(0,0,temp);
+		}
+	}
+	return list;
+}
 
-input.addEventListener("awesomplete-selectcomplete", null);
+function lastIndexOf(str, search) {
+    var i = str.length-2;
+    for (; i > -1; i--) {
+        if (str.indexOf(search,i) != -1) {
+            return i+2;
+        }
+    }
+    return -1;
+}
+
+input.addEventListener("awesomplete-selectcomplete", awesomeChangeListener);
 
 //input.addEventListener("onkeypress", changeListener);
-
-
