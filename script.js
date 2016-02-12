@@ -1,3 +1,10 @@
+function inject(str){
+	var inp = document.getElementById("countries");
+	inp.value = str;
+	changeListener("countries");
+	document.getElementById("countries").focus();
+	document.getElementById("countries").onkeypress();
+	}
 function getStringArrayFromOptions(id){
 	var inp = document.getElementById(id);
 	if(!inp){return null}
@@ -31,11 +38,14 @@ awesomplete.sudhirCustom = function(list, value){
 	value = value.toLowerCase();
 	var start = lastIndexOf(value, "~~")//hardcoded
 	value = value.substring(start);
-	for(var i=list.length-1;i>=0;i--){
+	var count = 0;
+	for(var i=list.length-1;i>count;i--){
 		var temp = list[i];
 		if(temp.toLowerCase().indexOf(value) === 0){
+			count++;
 			list.splice(i,1);
 			list.splice(0,0,temp);
+			i++;
 		}
 	}
 	return list;
@@ -54,5 +64,3 @@ function lastIndexOf(str, search) {
 input.addEventListener("awesomplete-selectcomplete", awesomeChangeListener);
 
 //input.addEventListener("onkeypress", changeListener);
-
-
