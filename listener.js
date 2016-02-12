@@ -17,19 +17,17 @@ function changeListener(id) {
 	//Now decide the choice list based on the number of tags
 	var mainStr = owner.value;
 	var index = mainStr.split("~~").length - 1;
-	if(changeDelimeters(index)){
-		awesomplete.list = getStringArrayFromOptions(lists[index]);
-	}	
-	//doAutoSelection(lists, mainStr.trimRight().split("~~"));
+	awesomplete.list = getStringArrayFromOptions(lists[index]);
+	doAutoSelection(lists, mainStr.trimRight().split("~~"));
 }
 
 function awesomeChangeListener(e) {
-	var owner = e.target;
+	 var owner = e.target;
 	//Now decide the choice list based on the number of tags
 	var mainStr = owner.value;
-	var index = mainStr.split("~~").length - 1;
+	//var index = mainStr.split("~~").length - 1;
 	//awesomplete.list = getStringArrayFromOptions(lists[index]);
-	doAutoSelection(lists, mainStr.trimRight().split("~~"));
+	doAutoSelection(lists, mainStr.trimRight().split("~~")); 
 }
 
 function doAutoSelection(lists, vals){
@@ -37,8 +35,7 @@ function doAutoSelection(lists, vals){
 	for(var i=0;i<vals.length-1;i++){
 		if(vals){
 			resulJSON[lists[i]] = vals[i];
-			}
+		}
 	}
 	autoSelect(lists,resulJSON);
-	
-}			
+}	
