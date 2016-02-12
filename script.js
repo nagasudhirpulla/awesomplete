@@ -54,3 +54,5 @@ function lastIndexOf(str, search) {
 input.addEventListener("awesomplete-selectcomplete", awesomeChangeListener);
 
 //input.addEventListener("onkeypress", changeListener);
+
+
