@@ -9,16 +9,32 @@
 		<!-- <script src="awesomplete.js"></script> -->
 		<script src="awesompletecustom.js"></script>
 		
-		<script src="index.js"></script><!--Not needed mostly-->
+		<!-- <script src="index.js"></script> -->
 		<!--script src="automateCopyToClipBoard.js"></script-->
 		<script src="automateSelectionFromJSON.js"></script>
 		<script src="listener.js"></script>
 	</head>
 	<body class="language-markup">
-		<h1>Awesomplete Addition</h1>
-		<input onkeydown = "changeListener('countries')" id="countries" placeholder="Enter the query" style="width: 600px" data-multiple/>
-		
-		
+		<table style="border-collapse: collapse;margin-bottom: -130px">
+			<tr>
+				<td style="">
+				<input onkeypress = "changeListener('countries')" oninput = "changeListener('countries')" id="countries" placeholder="Selection Assistant" style="width: 600px;margin-top: 0px" data-multiple/></td>
+				<td rowspan = "3" style="width:60px"></td>
+				<td style="">
+					<button style="background-color:yellow"onclick="inject('--Any--~~Line~~765 kV~~')">765 KV Line</button><span style="margin: 5px"></span><button style="background-color:red;color: white;" onclick="inject('--Any--~~Line~~400 kV~~')">400 KV Line</button><span style="margin: 5px"></span><button onclick="inject('--Any--~~Line~~220 kV~~')">220 KV Line</button>
+				</td>
+				<td rowspan = "3" style="width:30px"></td>
+				<td style=""><button style="background-color:yellow" onclick="inject('--Any--~~Line Reactor~~765 kV~~')">765 KV Line Reactor</button><span style="margin: 5px"></span><button style="background-color:red;color: white;" onclick="inject('--Any--~~Line Reactor~~400 kV~~')">400 KV Line Reactor</button>
+				</td>
+			</tr>
+			<tr style="height:100px">
+				<td style=""></td>
+				<td style=""><button style="background-color:yellow" onclick="inject('--Any--~~Bus~~765 kV~~')">765 KV Bus</button><span style="margin: 5px"></span><button style="background-color:red;color: white;" onclick="inject('--Any--~~Bus~~400 kV~~')">400 KV Bus</button><span style="margin: 5px"></span><button onclick="inject('--Any--~~Bus~~220 kV~~')">220 KV Bus</button>
+				</td>
+				<td style="text-align: right;"><button style="background-color:yellow" onclick="inject('--Any--~~Bus Reactor~~765 kV~~')">765 KV Bus Reactor</button><span style="margin: 5px"></span><button style="background-color:red;color: white;" onclick="inject('--Any--~~Bus Reactor~~400 kV~~')">400 KV Bus Reactor</button>
+				</td>
+			</tr>
+		</table>		
 		<!--Outage HTML-->
 		<form name="form1" method="post" action="" id="form1">
 			<div>
@@ -51,11 +67,11 @@
 						<th>Substation</th>
 						<th>Element:</th>
 						</tr><tr align="center">
-						<td><select size="8" id="own" name="own" onchange="fill_substns('substn'); fill_elements('element')"><option value="-1">--Any--</option><option value="59">ACBIL</option><option value="133">ACPL</option><option value="505">AP</option><option value="311">ATIL</option><option value="329">AVANTHAP</option><option value="58">BALCO</option><option value="304">CGPL</option><option value="53">CSPTCL</option><option value="319">DBPL</option><option value="57">DD</option><option value="314">DGEN</option><option value="317">DIL</option><option value="56">DNH</option><option value="309">EMCO</option><option value="141">ESSAR</option><option value="132">GCEL</option><option value="51">GETCO</option><option value="131">GMR EMCO</option><option value="55">GOA</option><option value="312">GPEC</option><option value="320">IEPL</option><option value="322">INDBULLS</option><option value="4">ISTS</option><option value="315">JAYPEE</option><option value="328">JHABUAP</option><option value="301">JPL</option><option value="502">JSEB</option><option value="161">JSW</option><option value="330">JTCL</option><option value="504">KAR</option><option value="316">KMPCL</option><option value="324">KWPCL</option><option value="306">LANCO</option><option value="327">MEGPTCL</option><option value="52">MPPTCL</option><option value="54">MSETCL</option><option value="122">NHPC</option><option value="182">NPCIL</option><option value="171">NSPCL</option><option value="112">NTPC</option><option value="500">ORISSA</option><option value="3">PGCIL</option><option value="50">PLINK</option><option value="501">RAJ</option><option value="60">RETL</option><option value="305">RGPPL</option><option value="30">RGPPL</option><option value="325">RKMPPL</option><option value="313">RPL</option><option value="340">RSTCL</option><option value="302">SASAN</option><option value="326">SKS</option><option value="303">SSP</option><option value="323">Sterlite</option><option value="318">TATA</option><option value="183">TPGL</option><option value="503">UP</option><option value="321">VND</option></select></td>
-						<td><select size="8" id="etype" name="etype" onchange="fill_vols('vol'); fill_substns('substn'); fill_reasons('reason','F');  fill_elements('element')"><option value="B">Bus</option><option value="C">Bus Capacitor</option><option value="D">FSC</option><option value="F">FACTS</option><option value="G">Generator</option><option value="H">HVDC Station</option><option value="I">ICT</option><option value="L">Line</option><option value="R">Bus Reactor</option><option value="S">Line Reactor</option><option value="T">TCSC</option><option value="U">Bus Coupler</option><option value="V">SVC</option><option value="Y">Bay</option><option value="Z">Station Transformer</option></select></td>
-						<td><select size="8" id="vol" name="vol" onchange="fill_substns('substn'); fill_elements('element')"><option value="132 kV">132 kV</option><option value="220 kV">220 kV</option><option value="400 kV">400 kV</option><option value="500 kV HVDC">500 kV HVDC</option><option value="765 kV">765 kV</option></select></td>
-						<td><select size="8" id="substn" name="substn" onchange="fill_elements('element')"><option value="-1">--Any--</option><option value="111">KHANDWA(PGCIL)</option><option value="36">MUNDRA(ATIL)</option><option value="135">RAIGARH(PGCIL)</option><option value="66">RAIPUR(PGCIL)</option><option value="69">RAJGARH(PGCIL)</option><option value="64">SAMI(ATIL)</option><option value="121">SEONI(PGCIL)</option><option value="139">WARDHA(PGCIL)</option></select></td>
-						<td><select size="8" id="element" name="element" onchange="element_change();"><option value="999">SEONI-KHANDWA FSC-2 FSC</option><option value="1002">ADANI-SAMI FSC-2 FSC</option><option value="1005">RAIPUR-WARDHA FSC-1 FSC</option><option value="1004">ADANI-SAMI FSC-1 FSC</option><option value="1006">RAIPUR-WARDHA FSC-2 FSC</option><option value="1007">RAIPUR-WARDHA FSC-2 FSC</option><option value="1001">ADANI-SAMI FSC-1 FSC</option><option value="1000">SEONI-KHANDWA FSC-1 FSC</option><option value="1009">RAIGARH-RAIPUR FSC-1 FSC</option><option value="1015">RAIGARH-RAIPUR-IV FSC-2 FSC</option><option value="998">SEONI-KHANDWA FSC-2 FSC</option><option value="1010">RAIGARH-RAIPUR FSC-1 FSC</option><option value="997">SEONI-KHANDWA FSC-1 FSC</option><option value="1008">RAIPUR-WARDHA FSC-1 FSC</option><option value="1003">ADANI-SAMI FSC-2 FSC</option><option value="2593">RAJGARH-KASOR-I FSC</option><option value="2594">RAJGARH-KASOR-II FSC</option></select><br>
+						<td><select size="8" id="own" name="own" onchange=""><option value="-1">--Any--</option><option value="59">ACBIL</option><option value="133">ACPL</option><option value="505">AP</option><option value="311">ATIL</option><option value="329">AVANTHAP</option><option value="58">BALCO</option><option value="304">CGPL</option><option value="53">CSPTCL</option><option value="319">DBPL</option><option value="57">DD</option><option value="314">DGEN</option><option value="317">DIL</option><option value="56">DNH</option><option value="309">EMCO</option><option value="141">ESSAR</option><option value="132">GCEL</option><option value="51">GETCO</option><option value="131">GMR EMCO</option><option value="55">GOA</option><option value="312">GPEC</option><option value="320">IEPL</option><option value="322">INDBULLS</option><option value="4">ISTS</option><option value="315">JAYPEE</option><option value="328">JHABUAP</option><option value="301">JPL</option><option value="502">JSEB</option><option value="161">JSW</option><option value="330">JTCL</option><option value="504">KAR</option><option value="316">KMPCL</option><option value="324">KWPCL</option><option value="306">LANCO</option><option value="327">MEGPTCL</option><option value="52">MPPTCL</option><option value="54">MSETCL</option><option value="122">NHPC</option><option value="182">NPCIL</option><option value="171">NSPCL</option><option value="112">NTPC</option><option value="500">ORISSA</option><option value="3">PGCIL</option><option value="50">PLINK</option><option value="501">RAJ</option><option value="60">RETL</option><option value="305">RGPPL</option><option value="30">RGPPL</option><option value="325">RKMPPL</option><option value="313">RPL</option><option value="340">RSTCL</option><option value="302">SASAN</option><option value="326">SKS</option><option value="303">SSP</option><option value="323">Sterlite</option><option value="318">TATA</option><option value="183">TPGL</option><option value="503">UP</option><option value="321">VND</option></select></td>
+						<td><select size="8" id="etype" name="etype" onchange=""><option value="B">Bus</option><option value="C">Bus Capacitor</option><option value="D">FSC</option><option value="F">FACTS</option><option value="G">Generator</option><option value="H">HVDC Station</option><option value="I">ICT</option><option value="L">Line</option><option value="R">Bus Reactor</option><option value="S">Line Reactor</option><option value="T">TCSC</option><option value="U">Bus Coupler</option><option value="V">SVC</option><option value="Y">Bay</option><option value="Z">Station Transformer</option></select></td>
+						<td><select size="8" id="vol" name="vol" onchange=""><option value="132 kV">132 kV</option><option value="220 kV">220 kV</option><option value="400 kV">400 kV</option><option value="500 kV HVDC">500 kV HVDC</option><option value="765 kV">765 kV</option></select></td>
+						<td><select size="8" id="substn" name="substn" onchange=""><option value="-1">--Any--</option><option value="111">KHANDWA(PGCIL)</option><option value="36">MUNDRA(ATIL)</option><option value="135">RAIGARH(PGCIL)</option><option value="66">RAIPUR(PGCIL)</option><option value="69">RAJGARH(PGCIL)</option><option value="64">SAMI(ATIL)</option><option value="121">SEONI(PGCIL)</option><option value="139">WARDHA(PGCIL)</option></select></td>
+						<td><select size="8" id="element" name="element" onchange=""><option value="999">SEONI-KHANDWA FSC-2 FSC</option><option value="1002">ADANI-SAMI FSC-2 FSC</option><option value="1005">RAIPUR-WARDHA FSC-1 FSC</option><option value="1004">ADANI-SAMI FSC-1 FSC</option><option value="1006">RAIPUR-WARDHA FSC-2 FSC</option><option value="1007">RAIPUR-WARDHA FSC-2 FSC</option><option value="1001">ADANI-SAMI FSC-1 FSC</option><option value="1000">SEONI-KHANDWA FSC-1 FSC</option><option value="1009">RAIGARH-RAIPUR FSC-1 FSC</option><option value="1015">RAIGARH-RAIPUR-IV FSC-2 FSC</option><option value="998">SEONI-KHANDWA FSC-2 FSC</option><option value="1010">RAIGARH-RAIPUR FSC-1 FSC</option><option value="997">SEONI-KHANDWA FSC-1 FSC</option><option value="1008">RAIPUR-WARDHA FSC-1 FSC</option><option value="1003">ADANI-SAMI FSC-2 FSC</option><option value="2593">RAJGARH-KASOR-I FSC</option><option value="2594">RAJGARH-KASOR-II FSC</option></select><br>
 						</td>
 					</tr>
 					</tbody></table>
@@ -106,4 +122,4 @@
 		</form>
 		<script src="script.js"></script><!--Our Custom Script-->
 	</body>
-</html>
+</html>		
