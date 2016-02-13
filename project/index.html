@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Awesomplete Plugin Demo</title>
+		<!--Start Copying From here-->
+		<link rel="stylesheet" href="awesomplete.css" />
+		<!-- <script src="awesomplete.js"></script> -->
+		<script src="awesompletecustom.js"></script>
+		<!--script src="automateCopyToClipBoard.js"></script-->
+		<script src="automateSelectionFromJSON.js"></script>
+		<script src="listener.js"></script>
+		<!--End Copying here-->
+	</head>
+	<body class="language-markup">
+		<!--Start Copying here-->
+		<table style="border-collapse: collapse;margin-bottom: -130px">
+			<tr>
+				<td style="">
+				<input onkeypress = "changeListener('countries')" oninput = "changeListener('countries')" id="countries" placeholder="Selection Assistant" style="width: 300px;margin-top: 0px" data-multiple/></td>
+				<td rowspan = "3" style="width:30px"></td>
+				<td style="">
+					<button style="background-color:yellow"onclick="inject('--Any--~~Line~~765 kV~~')">LINE 765kV</button><span style="margin: 5px"></span><button style="background-color:red;color: white;" onclick="inject('--Any--~~Line~~400 kV~~')">LINE 400kV</button><span style="margin: 5px"></span><button onclick="inject('--Any--~~Line~~220 kV~~')">LINE 220kV</button>
+				</td>
+				<td rowspan = "3" style="width:20px"></td>
+				<td style=""><button style="background-color:yellow" onclick="inject('--Any--~~Line Reactor~~765 kV~~')">LINE RCTR 765kV</button><span style="margin: 5px"></span><button style="background-color:red;color: white;" onclick="inject('--Any--~~Line Reactor~~400 kV~~')">LINE RCTR 400kV</button>
+				</td>
+			</tr>
+			<tr style="height:100px">
+				<td style=""></td>
+				<td style=""><button style="background-color:yellow" onclick="inject('--Any--~~Bus~~765 kV~~')">BUS 765kV</button><span style="margin: 5px"></span><button style="background-color:red;color: white;" onclick="inject('--Any--~~Bus~~400 kV~~')">BUS 400kV</button><span style="margin: 5px"></span><button onclick="inject('--Any--~~Bus~~220 kV~~')">BUS 220kV</button>
+				</td>
+				<td style="text-align: right;"><button style="background-color:yellow" onclick="inject('--Any--~~Bus Reactor~~765 kV~~')">BUS RCTR 765kV</button><span style="margin: 5px"></span><button style="background-color:red;color: white;" onclick="inject('--Any--~~Bus Reactor~~400 kV~~')">BUS RCTR 400 kV</button>
+				</td>
+			</tr>
+		</table>
+		<!--End Copying here-->
+		<!--Outage HTML-->
+		<form name="form1" method="post" action="" id="form1">
+			<div>
+				<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMjI4MTU0NDAyZGR5c+k4ixPTX9bUBO/RYqsUhNT4pkhuCF5Jsmx7IgtOWA==">
+			</div>
+			
+			<div>
+				
+				<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="84E569E1">
+				<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAJNZvQQDOQZp2aTWVhzr2IolliAPKY+KvRmniYVjNuQiDzYKYfmVm4WSBOt0jdwCpRxttTBkzYasKr7IluUGbrI">
+			</div>
+			<table border="0" width="100%">
+				<tbody><tr>
+					<td>
+						<h1>Add Outage</h1>
+						
+					</td>
+					<td></td>
+				</tr>
+				</tbody></table>
+				<h2>Find Element </h2>
+				<table border="1" style="border-collapse:collapse;">
+					<tbody><tr>
+						
+					</tr>
+					<tr>
+						<th>Owned By</th>
+						<th>Element Type</th>
+						<th>Voltage</th>
+						<th>Substation</th>
+						<th>Element:</th>
+						</tr><tr align="center">
+						<td><select size="8" id="own" name="own" onchange=""><option value="-1">--Any--</option><option value="59">ACBIL</option><option value="133">ACPL</option><option value="505">AP</option><option value="311">ATIL</option><option value="329">AVANTHAP</option><option value="58">BALCO</option><option value="304">CGPL</option><option value="53">CSPTCL</option><option value="319">DBPL</option><option value="57">DD</option><option value="314">DGEN</option><option value="317">DIL</option><option value="56">DNH</option><option value="309">EMCO</option><option value="141">ESSAR</option><option value="132">GCEL</option><option value="51">GETCO</option><option value="131">GMR EMCO</option><option value="55">GOA</option><option value="312">GPEC</option><option value="320">IEPL</option><option value="322">INDBULLS</option><option value="4">ISTS</option><option value="315">JAYPEE</option><option value="328">JHABUAP</option><option value="301">JPL</option><option value="502">JSEB</option><option value="161">JSW</option><option value="330">JTCL</option><option value="504">KAR</option><option value="316">KMPCL</option><option value="324">KWPCL</option><option value="306">LANCO</option><option value="327">MEGPTCL</option><option value="52">MPPTCL</option><option value="54">MSETCL</option><option value="122">NHPC</option><option value="182">NPCIL</option><option value="171">NSPCL</option><option value="112">NTPC</option><option value="500">ORISSA</option><option value="3">PGCIL</option><option value="50">PLINK</option><option value="501">RAJ</option><option value="60">RETL</option><option value="305">RGPPL</option><option value="30">RGPPL</option><option value="325">RKMPPL</option><option value="313">RPL</option><option value="340">RSTCL</option><option value="302">SASAN</option><option value="326">SKS</option><option value="303">SSP</option><option value="323">Sterlite</option><option value="318">TATA</option><option value="183">TPGL</option><option value="503">UP</option><option value="321">VND</option></select></td>
+						<td><select size="8" id="etype" name="etype" onchange=""><option value="B">Bus</option><option value="C">Bus Capacitor</option><option value="D">FSC</option><option value="F">FACTS</option><option value="G">Generator</option><option value="H">HVDC Station</option><option value="I">ICT</option><option value="L">Line</option><option value="R">Bus Reactor</option><option value="S">Line Reactor</option><option value="T">TCSC</option><option value="U">Bus Coupler</option><option value="V">SVC</option><option value="Y">Bay</option><option value="Z">Station Transformer</option></select></td>
+						<td><select size="8" id="vol" name="vol" onchange=""><option value="132 kV">132 kV</option><option value="220 kV">220 kV</option><option value="400 kV">400 kV</option><option value="500 kV HVDC">500 kV HVDC</option><option value="765 kV">765 kV</option></select></td>
+						<td><select size="8" id="substn" name="substn" onchange=""><option value="-1">--Any--</option><option value="111">KHANDWA(PGCIL)</option><option value="36">MUNDRA(ATIL)</option><option value="135">RAIGARH(PGCIL)</option><option value="66">RAIPUR(PGCIL)</option><option value="69">RAJGARH(PGCIL)</option><option value="64">SAMI(ATIL)</option><option value="121">SEONI(PGCIL)</option><option value="139">WARDHA(PGCIL)</option></select></td>
+						<td><select size="8" id="element" name="element" onchange=""><option value="999">SEONI-KHANDWA FSC-2 FSC</option><option value="1002">ADANI-SAMI FSC-2 FSC</option><option value="1005">RAIPUR-WARDHA FSC-1 FSC</option><option value="1004">ADANI-SAMI FSC-1 FSC</option><option value="1006">RAIPUR-WARDHA FSC-2 FSC</option><option value="1007">RAIPUR-WARDHA FSC-2 FSC</option><option value="1001">ADANI-SAMI FSC-1 FSC</option><option value="1000">SEONI-KHANDWA FSC-1 FSC</option><option value="1009">RAIGARH-RAIPUR FSC-1 FSC</option><option value="1015">RAIGARH-RAIPUR-IV FSC-2 FSC</option><option value="998">SEONI-KHANDWA FSC-2 FSC</option><option value="1010">RAIGARH-RAIPUR FSC-1 FSC</option><option value="997">SEONI-KHANDWA FSC-1 FSC</option><option value="1008">RAIPUR-WARDHA FSC-1 FSC</option><option value="1003">ADANI-SAMI FSC-2 FSC</option><option value="2593">RAJGARH-KASOR-I FSC</option><option value="2594">RAJGARH-KASOR-II FSC</option></select><br>
+						</td>
+					</tr>
+					</tbody></table>
+					<span id="_ele_"></span>
+					<div id="out_details" style="visibility: visible;">
+						<h2>Enter Outage Details</h2>
+						<table border="1" style="border-collapse:collapse;">
+							<tbody><tr>
+								<th rowspan="2">Type of Outage</th><th colspan="2">Outage</th><th colspan="2">Expected</th><th rowspan="2">Reason</th><th colspan="3">Revival</th><th rowspan="2">Comments</th>
+							</tr>
+							<tr>
+								<th>Date</th><th>Time</th><th>Date</th><th>Time</th><th>Date</th><th>Time</th><th>Closing Code</th>
+							</tr>
+							<tr>
+								<td><select id="typeOfOutage" name="typeOfOutage">
+									<option value="F">Forced </option>
+									<option value="P">Planned </option>
+									<option value="E">Emergency </option>
+								</select></td>
+								<td><input id="txtStartDate" name="txtStartDate" type="text" size="10" maxlength="10"><a href="javascript:;" onclick="open_cal('txtStartDate')"><img src="" border="0"></a></td>
+								<td><input id="txtStartTime" name="txtStartTime" type="text" size="5" maxlength="5"></td>
+								<!-- <td><input id="txtOpeningCode" name="txtOpeningCode" type="text"  size="8" maxlength="20" /></td> -->
+								<td><input id="txtExpDate" name="txtExpDate" type="text" size="10" maxlength="10"><a href="javascript:;" onclick="open_cal('txtExpDate')"><img src="" border="0"></a></td>
+								<td><input id="txtExpTime" name="txtExpTime" type="text" size="5" maxlength="5"></td>        
+								<td><select id="reason" name="reason"><option value="8">Tower Collapse</option><option value="1">A/R to Non Auto</option><option value="7">Manually opened due to High Voltage.</option><option value="84">--Reason to be defined under comments--</option><option value="0">Voltage Regulation</option></select></td>
+								<td><input id="txtEndDate" name="txtEndDate" type="text" size="10" maxlength="10"><a href="javascript:;" onclick="open_cal('txtEndDate');"><img src="" border="0"></a></td>
+								<td><input id="txtEndTime" name="txtEndTime" type="text" size="5" maxlength="5"></td>
+								<td><input id="txtClosingCode" name="txtClosingCode" type="text" size="8" maxlength="20"></td>
+								
+								<td><textarea id="txtComments" name="txtComments" rows="3" cols="20"></textarea></td>
+							</tr>       
+							</tbody></table>
+							<input type="button" value="Add" onclick="add_row(); ">
+					</div>
+					
+					<div id="added_elements" style="visibility: visible;">
+						<h2>Added Elements</h2>
+						<table id="added" border="1" style="border-collapse:collapse;" width="100%">
+							<tbody><tr>
+								<th rowspan="2">Element</th><th rowspan="2">Type</th><th rowspan="2">Voltage</th><th rowspan="2">Agency</th><th colspan="2">Outage</th><th colspan="2">Expected</th><th rowspan="2">Reason</th><th colspan="2">Revival</th><th rowspan="2">Comments</th><th rowspan="2">&nbsp;</th>
+							</tr>
+							<tr>
+								<th>Date</th><th>Time</th><th>Date</th><th>Time</th><th>Date</th><th>Time</th>
+							</tr>
+							<tr><td>RAIGARH-RAIPUR FSC-1 FSC<input type="hidden" name="element_id" value="1010"></td><td>D<input type="hidden" name="devType" value="D"></td><td>400 kV</td><td>--Any--</td><td>16-02-2016<input type="hidden" value="16-02-2016" name="outDate"></td><td>12:21<input type="hidden" value="12:21" name="outTime"></td><td><input type="hidden" value="" name="expDate"></td><td><input type="hidden" value="" name="expTime"></td><td>A/R to Non Auto<input type="hidden" value="1" name="reason"></td><td><input type="hidden" value="" name="inDate"></td><td><input type="hidden" value="" name="inTime"></td><td>zdgd<input type="hidden" value="zdgd" name="comments"><input type="hidden" value="" name="cCode"></td><td><a name="del_link" href="javascript:del_row('2')">X</a></td></tr></tbody></table>
+							<input type="submit" name="btnSave" value="Save" id="btnSave">
+					</div>
+		</form>
+		<!--Start Copying here-->
+		<script src="script.js"></script><!--Our Custom Script-->
+		<!--End Copying here-->
+	</body>
+</html>		
