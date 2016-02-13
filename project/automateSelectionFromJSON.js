@@ -12,7 +12,7 @@
 "txtComments": "Sudhir Prashanth"
 } */
 
-autoSelect = function(htmlSelectsArray,cj){
+function autoSelect(htmlSelectsArray,cj){
   /* htmlSelectsArray = ["own","etype","vol","substn","element","typeOfOutage","txtStartDate","txtStartTime","txtExpDate","txtExpTime","txtComments"]; */
   for(var i=0;i<htmlSelectsArray.length;i++){
     var selectElement = document.getElementById(htmlSelectsArray[i]);
@@ -22,9 +22,7 @@ autoSelect = function(htmlSelectsArray,cj){
 		texts[j] = selectElement.options[j].text;
 		}
   selectElement.selectedIndex = texts.indexOf(cj[htmlSelectsArray[i]]);
-    if(i<5){
-    selectElement.onchange();
-    }
+    if(i<5){selectElement.onchange();}
   }
 }
 

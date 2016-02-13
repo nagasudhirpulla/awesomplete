@@ -3,7 +3,7 @@ function changeListener(id) {
 	var mainStr = owner.value;
 	var index = mainStr.split("~~").length - 1;
 	awesomplete.list = getStringArrayFromOptions(lists[index]);
-	mainStr = mainStr.trimRight()
+	mainStr = mainStr.trimRight();
 	if(mainStr.slice(-1) == "~"){
 		doAutoSelection(lists, mainStr.split("~~"));
 	}
