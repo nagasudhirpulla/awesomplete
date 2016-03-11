@@ -13,18 +13,19 @@ function createElement(context, func, elemType, type, textVal, bgColor, marginRi
 autoSelectFromButton = function(htmlSelectsArray, cj) {
   for (var i = 0; i < htmlSelectsArray.length; i++) {
     var selectElement = document.getElementById(htmlSelectsArray[i]);
-	var texts = [];
+    var texts = [];
     for (var j = 0; j < selectElement.options.length; j++) {
       texts[j] = selectElement.options[j].text;
     }
-	var index = texts.indexOf(cj[htmlSelectsArray[i]]);
-    window.setTimeout(timeoutFunction, [500, htmlSelectsArray, i, index]);
+    var index = texts.indexOf(cj[htmlSelectsArray[i]]);
+    window.setTimeout(function(){
+    	selectFunction(selectElement, index)
+    }, 500*i);
   }
 }
 
-function timeoutFunction(htmlSelectsArray, i, index) {
+function selectFunction(selectElement, index) {
   //get the select input texts
-  var selectElement = document.getElementById(htmlSelectsArray[i]);
   selectElement.selectedIndex = index;
   selectElement.onchange();
 }
