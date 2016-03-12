@@ -11,8 +11,10 @@ function createElement(context, func, elemType, type, textVal, bgColor, marginRi
 }
 
 autoSelectFromButton = function(htmlSelectsArray, cj) {
-	for (var i = 0; i < htmlSelectsArray.length; i++) {
-		var selectElement = document.getElementById(htmlSelectsArray[i]);
+	var i = 0;
+	var selectElement = null;
+	for (; i < htmlSelectsArray.length; i++) {
+		selectElement = document.getElementById(htmlSelectsArray[i]);
 		//get the select input texts
 		var texts = [];
 		for (var j = 0; j < selectElement.options.length; j++) {
@@ -22,6 +24,11 @@ autoSelectFromButton = function(htmlSelectsArray, cj) {
 		var funct = selectingFunctionFactory(selectElement, index);
 		window.setTimeout(funct, 500*i);
 	}
+	window.setTimeout(function(){
+		selectElement = document.getElementById("element");
+		selectElement.focus();
+		//opposite of focus() is blur()
+	}, 500*i);
 }
 
 function selectingFunctionFactory(selectElement, index) {
