@@ -1,52 +1,54 @@
 //create and attach the element
 function createElement(context, func, elemType, type, textVal, bgColor, marginRight, padding) {
-  var element = document.createElement(type);
-  element.type = type;
-  element.textContent = textVal;
-  element.onclick = func;
-  element.style.backgroundColor = bgColor;
-  element.style.marginRight = marginRight;
-  element.style.padding = padding;
-  context.appendChild(element);
+	var element = document.createElement(type);
+	element.type = type;
+	element.textContent = textVal;
+	element.onclick = func;
+	element.style.backgroundColor = bgColor;
+	element.style.marginRight = marginRight;
+	element.style.padding = padding;
+	context.appendChild(element);
 }
 
 autoSelectFromButton = function(htmlSelectsArray, cj) {
-  for (var i = 0; i < htmlSelectsArray.length; i++) {
-    var selectElement = document.getElementById(htmlSelectsArray[i]);
-    var texts = [];
-    for (var j = 0; j < selectElement.options.length; j++) {
-      texts[j] = selectElement.options[j].text;
-    }
-    var index = texts.indexOf(cj[htmlSelectsArray[i]]);
-    window.setTimeout(function(){
-    	selectFunction(selectElement, index)
-    }, 500*i);
-  }
+	for (var i = 0; i < htmlSelectsArray.length; i++) {
+		var selectElement = document.getElementById(htmlSelectsArray[i]);
+		//get the select input texts
+		var texts = [];
+		for (var j = 0; j < selectElement.options.length; j++) {
+			texts[j] = selectElement.options[j].text;
+		}
+		var index = texts.indexOf(cj[htmlSelectsArray[i]]);
+		var funct = selectingFunctionFactory(selectElement, index);
+		window.setTimeout(funct, 500*i);
+	}
 }
 
-function selectFunction(selectElement, index) {
-  //get the select input texts
-  selectElement.selectedIndex = index;
-  selectElement.onchange();
+function selectingFunctionFactory(selectElement, index) {
+	return function(){
+		selectElement.selectedIndex = index;
+		selectElement.onchange();
+	};
+	//Learn about object factories at - https://developer.mozilla.org/en/docs/Web/JavaScript/Closures & http://courseware.codeschool.com.s3.amazonaws.com/javascript-roadtrip/js3.pdf
 }
 
 function fun() {
-  var str = this.textContent.split(" ");
-  var etype = "";
-  for (var i = 0; i < str.length - 2; i++) {
-    if (i != 0) {
-      etype += " ";
-    }
-    etype += str[i];
-  }
-  var lists = ["own", "etype", "vol", "substn"];
-  var resulJSON = {
-    "own": "--Any--",
-    "etype": etype,
-    "vol": str[str.length - 2] + " " + str[str.length - 1],
-    "substn": "--Any--",
-  }
-  autoSelectFromButton(lists, resulJSON);
+	var str = this.textContent.split(" ");
+	var etype = "";
+	for (var i = 0; i < str.length - 2; i++) {
+		if (i != 0) {
+			etype += " ";
+		}
+		etype += str[i];
+	}
+	var lists = ["own", "etype", "vol", "substn"];
+	var resulJSON = {
+		"own": "--Any--",
+		"etype": etype,
+		"vol": str[str.length - 2] + " " + str[str.length - 1],
+		"substn": "--Any--",
+	}
+	autoSelectFromButton(lists, resulJSON);
 }
 
 var iDiv = document.createElement('div');
